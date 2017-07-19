@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="css/custom.css" rel="stylesheet">
+    <script type="text/javascript" src="library/dataframe.js"></script>
+    <script type="text/javascript" src="library/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="library/Chart.min.js"></script>
+    
+    <script type="text/javascript" src="js/DatasetFunctions.js"></script>
+    <script type="text/javascript" src="js/ChartCreator.js"></script>
+    <script type="text/javascript" src="js/BarCreator.js"></script>
+    <script type="text/javascript" src="js/LineCreator.js"></script>
+     <script type="text/javascript" src="js/PieCreator.js"></script>
+      <script type="text/javascript" src="js/PolarCreator.js"></script>
+</head>
+<body>
+<header>Economy-Student Loans</header>
+    <br><br>
+<div id="homepage">
+    <img src="img/world.jpg" width="100%" style="margin-left:0px;height:auto;">
+    <button class="button1">America</button>
+    <button id="UnitedKingdom" class="button2" onclick="loadDataset(this.id);scrollto('tablePrint')">United Kingdom</button>
+    <button class="button3">France</button>
+    <button id="India" class="button4" onclick="loadDataset(this.id);scrollto('tablePrint')" >India</button>
+    
+    <button class="button5">Spain</button>
+    </div>
+
+<div id="tablePrint"; style="text-align:left;">
+        </div>
+    
+    <br><br>
+    <br><br><br>
+    
+    <div id="excludecols" style="text-align:left;">
+        <button class="button" onclick="hide(excludebtn); listColumns(excludedata,'list')">Exclude Columns</button>    
+        </div>
+    <br><br><br><br><br>
+    
+        <div id="excludebtn" style="display : none;text-align:left;">
+            <div id="excludedata" style="text-align:left;">
+            </div>
+            <button class="button" onclick="excludeData()">Exclude</button>
+            <br><br>
+            <button class="button" onclick="reset()">Reset</button>
+            <br><br><br><br>
+    </div>
+    
+     
+    
+    
+    
+    <div id="filter" style="text-align:left">
+                <button class="button" onclick="hide(data);  listColumns(columns,'cols'); ">Apply Filter</button>    
+        <br><br><br>
+    
+    
+    <div id="data" style="display : none;text-align:left;">
+        <select id="condition" class="customdropdown">
+            <option value="group_by">Group By</option>
+            <option value="min">Min</option>
+            <option value="max">Max</option>
+        </select>
+        <br><br>
+            <div id="columns" style="text-align:left;">
+                </div>
+        <br><br>
+        <div id="statsbtn" "text-align:left;">
+            <button class="button" onclick="getStats()">Get Statistics</button>
+            <br><br>
+            <div id="statsdiv" "text-align:left;"></div>
+        </div>
+        <div id="filterbtn" "text-align:left;">
+            <button class="button" onclick="operations()">Filter</button>
+        </div>
+        
+    </div>
+        <br><br>
+        
+        
+    <br><br>
+    <div id="generateChart" style="text-align:left">
+                <button class="button" id="charts" onclick="hide(showCharts); listColumns(chartcols,'chart') ">Charts</button>  
+        <br><br><br><br>
+        
+        
+        <div id="showCharts" style="display : none;text-align:left;">
+                <div><h4>Select Columns to include: </h4></div>        
+            <div id="chartcols">
+                
+            </div>
+            <br>
+            <div><button class="button" onclick="displayvals()">Show Values</button></div>
+            <br><br>
+            <div id="showRows"></div>
+            <br><br>
+            
+            <div id="conditions" style="display : none;text-align:left;">
+                <select id="conditionvals" class="customdropdown">
+            <option  value="bar">Greater Than</option>
+            <option  value="pie">Lesser Than</option>
+            <option  value="stack">Greater Than Equal To</option>
+            <option  value="stack">Lesser Than Equal To</option>
+            <option  value="stack">Equal To</option>
+        </select>
+                <br><br>
+                <textarea rows="4" cols="10"></textarea>
+            </div>
+            <br><br>
+                <select id="chartoptions" class="customdropdown">
+            <option  value="bar">Bar Chart</option>
+            <option  value="line">Line Chart</option>
+            <option  value="pie">Pie Chart</option>
+            <option  value="polar">Polar Area Chart</option>
+        </select>
+            <br><br>
+            
+            <div id="chartbtn">
+            <button class="button" onclick="createChart()">Display Chart</button>
+        </div>
+
+        </div>
+        
+        
+    </div>  
+    
+    <div id="displayChart" style="text-align:left"  >
+        <canvas id="displaychart" width="100" height="100"></canvas>
+    
+    </div>
+        <br><br><br>
+    
+</body>
+
+</html>
